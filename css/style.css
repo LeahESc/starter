@@ -28,6 +28,7 @@ body {
 }
 
 .header {
+    position: relative;
     /* this says 'at everypoint the height of this box should be 95% of the viewport */
     height: 95vh;
     background-image: 
@@ -44,6 +45,45 @@ body {
     /* polygon takes the four pairs of x,y coordinates where you want the box to be */
     /* top left corner will be the refernce or starting point so it's 0 0 */
     /* polygon(top-left x axis top-left y axis, top-right x top-right y, bottom-right x bottom-right y, bottom-left x bottom-left y */
-    clip-path: polygon(0 0, 100% 0, 100% 200px, 0 100%)
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)
 
+}
+
+.logo-box{
+    position: absolute;
+    /* refernce point is the parent element that should have its position set to relative */
+    top: 40px;
+    left: 40px;
+}
+
+.logo{
+    height: 35px;
+}
+
+.text-box{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* transform:translate makes the reference point for this box to the center of the box itself */
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary{
+    color: #fff;
+    text-transform: uppercase;
+}
+/* block elements occupy the entire witdth of the space they're placed in and also create line breaks */
+
+.heading-primary-main{
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub{
+    display: block;
+    font-size: 20px;
+    font-weight: 700px;
+    letter-spacing: 17.4px;
 }
