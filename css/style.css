@@ -23,6 +23,7 @@ body {
     font-size: 16px;
     line-height: 1.7;
     color: #777;
+    /* padding gives the whole page a small white border */
     padding: 30px
 }
 
@@ -39,5 +40,10 @@ body {
     background-size: cover;
     /* crops bottom when image is re-sized and responsive. */
     background-position: top;
+    /* clip path allows us to clip off the bottom diagonal making it that cool polygon shape */
+    /* polygon takes the four pairs of x,y coordinates where you want the box to be */
+    /* top left corner will be the refernce or starting point so it's 0 0 */
+    /* polygon(top-left x axis top-left y axis, top-right x top-right y, bottom-right x bottom-right y, bottom-left x bottom-left y */
+    clip-path: polygon(0 0, 100% 0, 100% 200px, 0 100%)
 
 }
