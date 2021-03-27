@@ -62,9 +62,10 @@ body {
 
 .text-box{
     position: absolute;
+    /* top and left percents are in relation to the parent element */
     top: 40%;
     left: 50%;
-    /* transform:translate makes the reference point for this box to the center of the box itself */
+    /* transform:translate is referencing the element itselft */
     transform: translate(-50%, -50%);
 }
 
@@ -79,6 +80,13 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    /* animation-delay: 3s; */
+    /* animation-iteration-count: 3; */
+    /* ease-in starts animation off slower and then speeds up */
+    animation-timing-function: ease-in;
 }
 
 .heading-primary-sub{
@@ -86,4 +94,43 @@ body {
     font-size: 20px;
     font-weight: 700px;
     letter-spacing: 17.4px;
+    animation-name: moveInRight;
+    animation-duration: 2s;
+}
+/* animation for browsers it's best to only animate two properties: opacity and transform */
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px)
+    }
+
+    80% {
+        transform: translateX(10px)
+
+    }
+
+    100% {
+        opacity: 1;
+        /* translate(0) makes it look the way it is originally coded to look */
+        transform: translate(0);
+    }   
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px)
+    }
+
+    80% {
+        transform: translateX(-10px)
+
+    }
+
+    100% {
+        opacity: 1;
+        /* translate(0) makes it look the way it is originally coded to look */
+        transform: translate(0);
+
+    }
 }
