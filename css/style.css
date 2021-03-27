@@ -1,17 +1,22 @@
-/*
+/* 
 COLORS:
 
 Light green: #7ed56f
 Medium green: #55c57a
-Dark green: #28b485
+Dark green: #28b485 */
 
-*/
+
+
+/*  this resets the browser so every browser displays the page the same way */
 * {
     margin: 0;
     padding: 0;
+    /* box-sizing: border-box changes the box model so borders and paddings are no longer added to the height/width */
     box-sizing: border-box;   
 }
 
+/* properties related to font are inherited so we're setting up inheritance here */
+/* everything related to font we want to set up in the body */
 body {
     font-family: "Lato";
     font-weight: 400;
@@ -22,13 +27,17 @@ body {
 }
 
 .header {
+    /* this says 'at everypoint the height of this box should be 95% of the viewport */
     height: 95vh;
-    background-image: linear-gradient(
-        to right-bottom,
-         hsla(111, 55%, 64%, 0.808), 
-         hsla(160, 64%, 43%, 0.863)), 
+    background-image: 
+    linear-gradient(
+          to right bottom,  
+         hsla(111, 55%, 64%, 0.801), 
+         hsla(160, 64%, 43%, 0.801)), 
          url(../img/hero.jpg);
+         /* cover fits the element into the width of the view port */
     background-size: cover;
+    /* crops bottom when image is re-sized and responsive. */
     background-position: top;
 
 }
