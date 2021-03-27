@@ -67,11 +67,16 @@ body {
     left: 50%;
     /* transform:translate is referencing the element itselft */
     transform: translate(-50%, -50%);
+    text-align: center;
+    /* this centers the btn b/c the btn is inline-block which is treated like text */
 }
 
 .heading-primary{
     color: #fff;
     text-transform: uppercase;
+    /* determines the backpart of an element when we transform it is visible ot the user */
+    backface-visibility: hidden;
+    margin-bottom: 60px
 }
 /* block elements occupy the entire witdth of the space they're placed in and also create line breaks */
 
@@ -94,15 +99,19 @@ body {
     font-size: 20px;
     font-weight: 700px;
     letter-spacing: 17.4px;
-    animation-name: moveInRight;
-    animation-duration: 2s;
+    animation: moveInRight 2s ease-in
 }
 /* animation for browsers it's best to only animate two properties: opacity and transform */
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px)
+        transform: translateX(-100px) 
+        /* rotate(0deg) */
     }
+
+    /* 50% {
+        transform: rotate(180deg);
+    } */
 
     80% {
         transform: translateX(10px)
@@ -133,4 +142,33 @@ body {
         transform: translate(0);
 
     }
+}
+/* :link is a psuedo class -- it's a state of the button selector */
+/* we use psuedo classes to style the button in a particular condition */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 10px;
+    /* transition has to be present in initial state */
+    transition: all .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    /* off-set in x-direction y-direction blur color with opacity */
+    box-shadow: 0 10px 20px rgba(0,0,0,.2)
+}
+
+.btn:active { 
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2)
+}
+
+.btn-white {
+    background-color: white;
+    color: #777;
+
 }
