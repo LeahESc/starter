@@ -154,6 +154,8 @@ body {
     border-radius: 10px;
     /* transition has to be present in initial state */
     transition: all .2s;
+    position: relative;
+ 
 }
 
 .btn:hover {
@@ -170,5 +172,56 @@ body {
 .btn-white {
     background-color: white;
     color: #777;
+}
 
+/* after pseudo element */
+.btn::after {
+    content: ""; 
+    display: inline-block; 
+    height: 100%;
+    width: 100%; 
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* trans property to animate, all means all animations and .4 is the duration */
+    transition: all .4;
+    /* animation-name: moveInBottom;
+    animation-duration: 2s */
+
+}
+
+.btn-white::after {
+    background-color: white;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: .1;
+}
+
+.btn-animated {
+    animation-name: moveInBottom;
+    animation-duration: .5s;
+    animation-delay: .75s;
+    animation-timing-function: ease-out;
+    /* automatically applies the styles of the 0% animation */
+    animation-fill-mode: backwards;
+    /*  shorthand way to write that is 
+    animation: moveInBottom .5s ease-out .75s */
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100px)
+    }
+
+    100% {
+        opacity: 1;
+        /* translate(0) makes it look the way it is originally coded to look */
+        transform: translate(0);
+
+    }
 }
